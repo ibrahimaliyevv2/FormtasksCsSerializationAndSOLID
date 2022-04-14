@@ -1,0 +1,10 @@
+C:\Users\ibrahimaliyevv2\source\repos\FormtasksCsSerializationAndSOLID\NewEmployeeTask\Models\obj\Debug\netcoreapp3.1\Models.csproj.AssemblyReference.cache
+C:\Users\ibrahimaliyevv2\source\repos\FormtasksCsSerializationAndSOLID\NewEmployeeTask\Models\obj\Debug\netcoreapp3.1\Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ibrahimaliyevv2\source\repos\FormtasksCsSerializationAndSOLID\NewEmployeeTask\Models\obj\Debug\netcoreapp3.1\Models.AssemblyInfoInputs.cache
+C:\Users\ibrahimaliyevv2\source\repos\FormtasksCsSerializationAndSOLID\NewEmployeeTask\Models\obj\Debug\netcoreapp3.1\Models.AssemblyInfo.cs
+C:\Users\ibrahimaliyevv2\source\repos\FormtasksCsSerializationAndSOLID\NewEmployeeTask\Models\obj\Debug\netcoreapp3.1\Models.csproj.CoreCompileInputs.cache
+C:\Users\ibrahimaliyevv2\source\repos\FormtasksCsSerializationAndSOLID\NewEmployeeTask\Models\bin\Debug\netcoreapp3.1\Models.deps.json
+C:\Users\ibrahimaliyevv2\source\repos\FormtasksCsSerializationAndSOLID\NewEmployeeTask\Models\bin\Debug\netcoreapp3.1\Models.dll
+C:\Users\ibrahimaliyevv2\source\repos\FormtasksCsSerializationAndSOLID\NewEmployeeTask\Models\bin\Debug\netcoreapp3.1\Models.pdb
+C:\Users\ibrahimaliyevv2\source\repos\FormtasksCsSerializationAndSOLID\NewEmployeeTask\Models\obj\Debug\netcoreapp3.1\Models.dll
+C:\Users\ibrahimaliyevv2\source\repos\FormtasksCsSerializationAndSOLID\NewEmployeeTask\Models\obj\Debug\netcoreapp3.1\Models.pdb
