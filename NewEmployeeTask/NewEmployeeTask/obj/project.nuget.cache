@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "E6/PUFKLtVbfj9aNkHqEF7RHSsP9/v/19CwIJhxn4Vi4QSH4ObQgQgBtv7FkZDk7JBMX5x4T1s9KmKams30U8g==",
+  "dgSpecHash": "5tgHxB6pjP/PCHgp0HDmJJvaKMwys/xtg1QLsSULPykG2VWjJ9oMQk5/nhAt9nwq5SGjyANnzsHA4ZSyJARRhg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ibrahimaliyevv2\\source\\repos\\FormtasksCsSerializationAndSOLID\\NewEmployeeTask\\NewEmployeeTask\\NewEmployeeTask.csproj",
+  "projectFilePath": "/Users/ibrahimaliyevv/Projects/FormtasksCsSerializationAndSOLID/NewEmployeeTask/NewEmployeeTask/NewEmployeeTask.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ibrahimaliyevv2\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "/Users/ibrahimaliyevv/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

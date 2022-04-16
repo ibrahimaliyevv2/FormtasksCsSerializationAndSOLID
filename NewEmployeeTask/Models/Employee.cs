@@ -17,6 +17,7 @@ namespace Models
         public int Id { get;}
         public string Name { get; set; }
         public double Salary { get; set; }
+
         public void ShowInfo()
         {
             Console.WriteLine($"Name: {Name}, Salary: {Salary}");

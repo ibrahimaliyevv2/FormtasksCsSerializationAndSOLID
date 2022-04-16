@@ -9,112 +9,95 @@ namespace NewEmployeeTask
 {
     class Program
     {
-        static string path = @"C:\Users\ibrahimaliyevv2\Desktop\";
         static void Main(string[] args)
         {
-            
-            string dicName = "DbFolder";
-            DirectoryInfo directoryInfo = new DirectoryInfo(path+ dicName);
 
-            if (!directoryInfo.Exists)
+            Directory.CreateDirectory(@"C:\Users\ibrahimaliyevv2\Desktop\Files");
+            if (!File.Exists(@"C:\Users\User\Desktop\ibrahimaliyevv2\Files\database.json"))
             {
-                directoryInfo.Create();
+                File.Create(@"C:\Users\User\Desktop\ibrahimaliyevv2\Files\database.json");
             }
-            string fileName = "database.json";
-            FileInfo fileInfo = new FileInfo(path+ dicName+@"\"+fileName);
 
-            if (!fileInfo.Exists)
+            Department department = new Department
             {
-                fileInfo.Create();
-            }
+                Name = "Test-Department"
+            };
+
             bool check = true;
-            Department department = new Department();
             do
             {
-                Console.WriteLine("======Menu=====");
-                Console.WriteLine("1. Add Employee");
-                Console.WriteLine("2. Get Employee By Id");
-                Console.WriteLine("3. Remove Employee By Id");
-                Console.WriteLine("0. Quit");
-                Console.WriteLine("===============");
+                Console.WriteLine("===MENU===");
+                Console.WriteLine("1. Add employee");
+                Console.WriteLine("2. Get employee by id");
+                Console.WriteLine("3. Remove employee id");
 
-                byte choose = byte.Parse(Console.ReadLine());
+                string choice = Console.ReadLine();
 
-                switch (choose)
+                switch (choice)
                 {
-                    case 1:
-                        Console.WriteLine("Iscinin adini daxil edin:");
+                    case "1":
+                        Console.WriteLine("Enter Name:");
                         string name = Console.ReadLine();
-                        Console.WriteLine("Iscinin maasini daxil edin:");
-                        double salary = double.Parse(Console.ReadLine());
+                        Console.WriteLine("Enter Salary:");
+                        int salary = Convert.ToInt32(Console.ReadLine());
                         Employee employee = new Employee(name, salary);
+
                         department.AddEmployee(employee);
 
-                        var objectStr = JsonConvert.SerializeObject(department.Employees);
-                        using (FileStream fileStream = new FileStream(path + dicName + @"\" + fileName, FileMode.Create))
+                        string DepartmentObj = JsonConvert.SerializeObject(department);
+
+                        using (StreamWriter sw = new StreamWriter(@"C:\Users\User\Desktop\Files\ibrahimaliyevv2\database.json"))
                         {
-                            using (StreamWriter streamWriter = new StreamWriter(fileStream))
-                            {
-                                streamWriter.Write(objectStr);
-                            }
+                            sw.Write(DepartmentObj);
                         }
+
                         break;
-                    case 2:
+                    case "2":
                         Console.WriteLine("Id daxil edin:");
-                        int id = int.Parse(Console.ReadLine());
+                        int idEmp = Convert.ToInt32(Console.ReadLine());
 
-                        string ObjStr;
-                        using (FileStream fileStream = new FileStream(path + dicName + @"\" + fileName, FileMode.Open))
+                        string result = String.Empty;
+                        using (StreamReader sr = new StreamReader(@"C:\Users\User\Desktop\ibrahimaliyevv2\Files\database.json"))
                         {
-                            StreamReader streamReader = new StreamReader(fileStream);
-                            ObjStr = streamReader.ReadToEnd();
+                            result = sr.ReadToEnd();
                         }
 
-                        var user = JsonConvert.DeserializeObject<Employee>(ObjStr);
-                        department.AddEmployee(user);
-                        foreach (var item in department.Employees)
-                        {
-                            if (item.Id == id)
-                            {
-                                Console.WriteLine($"Name: {item.Name}, Salary: {item.Salary}");
-                            }
-                        }
-                        
+                        Department departmentDes = JsonConvert.DeserializeObject<Department>(result);
+
+                        departmentDes.GetEmployeeById(idEmp).ShowInfo();
+
                         break;
-                    case 3:
-                        Console.WriteLine("Id daxil edin:");
-                        int id2 = int.Parse(Console.ReadLine());
+                    case "3":
+                        Console.WriteLine("Id daxil edin :");
+                        int removeId = Convert.ToInt32(Console.ReadLine());
 
-                        string ObjStr2;
-                        using (FileStream fileStream = new FileStream(path + dicName + @"\" + fileName, FileMode.Open))
+                        string resultRem = String.Empty;
+                        using (StreamReader sr = new StreamReader(@"C:\Users\User\Desktop\ibrahimaliyevv2\Files\database.json"))
                         {
-                            StreamReader streamReader = new StreamReader(fileStream);
-                            ObjStr2= streamReader.ReadToEnd();
+                            resultRem = sr.ReadToEnd();
+                        }
+                        Department department4 = JsonConvert.DeserializeObject<Department>(resultRem);
+
+                        department4.RemoveEmployee(removeId);
+
+                        string DepartmentObjSer = JsonConvert.SerializeObject(department4);
+                        using (StreamWriter sw = new StreamWriter(@"C:\Users\User\Desktop\ibrahimaliyevv2\Files\database.json"))
+                        {
+                            sw.Write(DepartmentObjSer);
                         }
 
-                        var user2 = JsonConvert.DeserializeObject<Employee>(ObjStr2);
-                        department.AddEmployee(user2);
-                        department.RemoveEmployee(id2);
 
-                        var objectStr2 = JsonConvert.SerializeObject(department.Employees);
-                        using (FileStream fileStream = new FileStream(path + dicName + @"\" + fileName, FileMode.Create))
-                        {
-                            using (StreamWriter streamWriter = new StreamWriter(fileStream))
-                            {
-                                streamWriter.Write(objectStr2);
-                            }
-                        }
                         break;
-                    case 0:
+                    case "0":
                         check = false;
                         break;
                     default:
-                        Console.WriteLine("Wrong option!");
+                        Console.WriteLine("End of process");
                         break;
                 }
 
             } while (check);
-            
+
         }
     }
 }
